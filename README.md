@@ -1,5 +1,4 @@
 # ECONNECT
-Site de produtos sustentáveis 
 
 <p align="center">
       <img src="/ECONNECT.png" alt="logo">
@@ -7,12 +6,6 @@ Site de produtos sustentáveis
 <span id="topo">
 <p align="center">
   
-  <p align="center">
-     <a href ="#objetivo">Objetivo</a>  •
-     <a href ="#desafio">Desafio</a>  •
-     <a href ="#backlog">Backlog</a>  •
-     <a href ="#desenvolvedor">Desenvolvedor</a>
-   </p>
 
 ## 🎯 Objetivo <a id="objetivo"></a>
 
