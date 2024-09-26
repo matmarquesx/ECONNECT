@@ -2,7 +2,7 @@
 Site de produtos sustentáveis 
 
 <p align="center">
-      <img src="/ECONNECT (2).png" alt="logo">
+      <img src="/ECONNECT.png" alt="logo">
 
 <span id="topo">
 <p align="center">
