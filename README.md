@@ -17,13 +17,13 @@ Este projeto tem como objetivo criar um plano de marketing abrangente e inovador
 
 ## 📋 Backlog do Produto <a id="backlog"></a>
 | Sprint | User Stories (US) | Prioridade | Status | Entrega |
-| ------ | -- | ---------- | ------ | ------- |
-| 1 | "Como cliente, quero um site onde posso anunciar meus produtos." | 100 | ⏳ | 29/09 |
-| 1 |"Como cliente, quero apenas versão desktop."| 80 | ⏳ | 29/09 |
-| 1 |"Como cliente, quero uma página home que seja atrativa e chame a atenção com os produtos em destaque."| 60 | ⏳ | 29/09 |
-| 2 |"Como desenvolvedor, preciso criar wireframes das campanhas de marketing para visualizar as ideias."| 40 | ⏳ | 20/10 |
-| 3 |"Como desenvolvedor, preciso implementar gráficos interativos para visualizar as tendências de consumo sustentável.."| 25 | ⏳ | 10/11 |
-| 4 |"Como usuário, gostaria de compartilhar os resultados e conquistas da empresa nas redes sociais, para engajar e divulgar o progresso entre amigos e seguidores."| 10 | ⏳ | 01/12 |
+|-----|--|---------|-----|------|
+|1| "Como cliente, quero um site onde posso anunciar meus produtos." |100|⏳|29/09|
+|1|"Como cliente, quero apenas versão desktop."|80|⏳|29/09|
+|1|"Como cliente, quero uma página home que seja atrativa e chame a atenção com os produtos em destaque."|60|⏳|29/09|
+|2|"Como desenvolvedor, preciso criar wireframes das campanhas de marketing para visualizar as ideias."|40|⏳|20/10|
+|3|"Como desenvolvedor, preciso implementar gráficos interativos para visualizar as tendências de consumo sustentável."|25|⏳|10/11|
+|4|"Como usuário, gostaria de compartilhar os resultados e conquistas da empresa nas redes sociais, para engajar e divulgar o progresso entre amigos e seguidores."|10|⏳|01/12|
 
 ## Desenvolvedor <a id="equipe"></a>
 
