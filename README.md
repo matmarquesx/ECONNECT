@@ -1,7 +1,7 @@
 # ECONNECT
 
 <p align="center">
-      <img src="/ECONNECT.png" alt="logo">
+      <img src="/ECONNECT.png (1)" alt="logo">
 
 <span id="topo">
 <p align="center">
