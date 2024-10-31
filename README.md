@@ -1,46 +1,34 @@
-# Getting Started with Create React App
+# ECONNECT
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p align="center">
+      <img src="/ECONNECT.png" alt="logo">
 
-## Available Scripts
+<span id="topo">
+<p align="center">
+  
 
-In the project directory, you can run:
+## 🎯 Objetivo <a id="objetivo"></a>
 
-### `npm start`
+Desenvolvimento de Plano de Marketing para o Lançamento de um Novo Produto Sustentável.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## ⚙ Desafio <a id="desafio"></a>
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Este projeto tem como objetivo criar um plano de marketing abrangente e inovador para o lançamento de um novo produto sustentável da empresa GHI. O plano incluirá a definição do público-alvo consciente, estratégias de comunicação ecologicamente responsáveis, um cronograma de ações alinhado aos valores sustentáveis e uma alocação de recursos eficiente.
 
-### `npm test`
+## 📋 Backlog do Produto <a id="backlog"></a>
+| Sprint | User Stories (US) | Prioridade | Status | Entrega |
+|-----|--|---------|-----|------|
+|1| "Como cliente, quero um site onde posso anunciar meus produtos." |100|⏳|29/09|
+|1|"Como cliente, quero apenas versão desktop."|80|⏳|29/09|
+|1|"Como cliente, quero uma página home que seja atrativa e chame a atenção com os produtos em destaque."|60|⏳|29/09|
+|2|"Como desenvolvedor, preciso criar wireframes das campanhas de marketing para visualizar as ideias."|40|⏳|20/10|
+|3|"Como desenvolvedor, preciso implementar botões de compartilhamento e contato."|25|⏳|10/11|
+|4|"Como usuário, gostaria de compartilhar os produtos da empresa nas redes sociais, para engajar e divulgar com amigos e seguidores."|10|⏳|01/12|
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Desenvolvedor <a id="equipe"></a>
 
-### `npm run build`
+| Nome | Github | Linkedin |
+| ---- | ------ | -------- | 
+| Matheus Marques |<a href="https://github.com/matmarquesx"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a>| <a href="https://www.linkedin.com/in/matmarquesx/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a> |
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
