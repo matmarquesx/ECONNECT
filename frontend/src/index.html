@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Econnect Produtos Ecológicos</title>
+    <style>
+        /* Estilos básicos */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        img {
+            border-radius: 10px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .product-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .product {
+            text-align: center;
+        }
+        /* Estilos do Pop-up */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            border-radius: 8px;
+        }
+        .popup button {
+            margin-top: 10px;
+        }
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 18px;
+            color: #888;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+        }
+        .contact-section {
+            margin-top: 40px;
+            padding: 20px;
+            background: #f1f1f1;
+            border-radius: 10px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+
+    <img src="logo-eco.png" alt="Econnect Logo" style="width: 200px; margin-bottom: 20px;" />
+
+    <h1>PRODUTOS ECOLÓGICOS PARA UM PLANETA MAIS SAUDÁVEL</h1>
+    <p>Buscando tornar o dia-a-dia de nossos clientes mais sustentável</p>
+
+
+    <div class="product-container">
+        <div class="product">
+            <img src="eco-bag-tomate.jpg" alt="Econnect Bag Tomato" style="width: 200px;" />
+            <p>ECONNECT BAG (TOMATO)</p>
+            <button onclick="openSharePopup()">Compartilhar</button>
+        </div>
+        <div class="product">
+            <img src="eco-bag-favorita.jpg" alt="Econnect Bag Favorita" style="width: 200px;" />
+            <p>ECONNECT BAG (FAVORITA)</p>
+            <button onclick="openSharePopup()">Compartilhar</button>
+        </div>
+    </div>
+
+    <!-- Pop-up de Compartilhamento -->
+    <div class="overlay" id="overlay" onclick="closeSharePopup()"></div>
+    <div class="popup" id="sharePopup">
+        <button class="close-btn" onclick="closeSharePopup()">X</button>
+        <h3>Compartilhar em:</h3>
+        <button onclick="handleShare('facebook')">Facebook</button>
+        <button onclick="handleShare('instagram')">Instagram</button>
+    </div>
+
+    <!-- Seção de Contato -->
+    <div class="contact-section">
+        <h2>Entre em Contato Conosco</h2>
+        <form id="contact-form">
+            <input type="email" id="email" placeholder="Digite seu e-mail" required><br><br>
+            <textarea id="message" rows="4" cols="50" placeholder="Digite sua mensagem aqui..." required></textarea><br><br>
+            <button type="submit">Enviar Mensagem</button>
+        </form>
+        <p id="confirmation" style="color: green; margin-top: 10px;"></p>
+    </div>
+
+    <script>
+        // Funções para abrir e fechar o pop-up
+        function openSharePopup() {
+            document.getElementById('overlay').style.display = 'block';
+            document.getElementById('sharePopup').style.display = 'block';
+        }
+
+        function closeSharePopup() {
+            document.getElementById('overlay').style.display = 'none';
+            document.getElementById('sharePopup').style.display = 'none';
+        }
+
+        // Função para compartilhamento nas redes sociais
+        function handleShare(platform) {
+            fetch(`/api/share`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ platform: platform })
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.message);
+                closeSharePopup();
+            })
+            .catch(error => {
+                alert('Erro ao compartilhar');
+            });
+        }
+
+        // Função para envio de mensagem de contato
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            fetch('/api/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ email: email, message: message })
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('confirmation').innerText = 'Mensagem recebida! Em breve enviaremos uma confirmação por email.';
+                document.getElementById('contact-form').reset();
+            })
+            .catch(error => {
+                alert('Erro ao enviar mensagem');
+            });
+        });
+    </script>
+</body>
+</html>

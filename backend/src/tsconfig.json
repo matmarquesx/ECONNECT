@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "es2016", // Versão de JavaScript gerada
+    "module": "commonjs", // Sistema de módulos compatível com Node.js
+    "outDir": "./dist", // Diretório de saída para os arquivos compilados
+    "rootDir": "./src", // Diretório raiz para os arquivos de entrada
+    "strict": true, // Ativa todas as verificações estritas do TypeScript
+    "esModuleInterop": true, // Facilita importações de módulos CommonJS
+    "forceConsistentCasingInFileNames": true, // Garante consistência de nomes em imports
+    "skipLibCheck": true // Ignora checagem de tipos em bibliotecas
+  },
+  "include": ["backend/src"], // Inclui todos os arquivos TypeScript dentro de 'src'
+  "exclude": ["node_modules", "dist"] // Exclui pastas que não devem ser processadas
+}
