@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const nodemailer = require('nodemailer');
+const cors = require('cors');
 
 const app = express();
 const PORT = 3000;
@@ -8,20 +9,52 @@ const PORT = 3000;
 // Middleware para interpretar JSON
 app.use(bodyParser.json());
 
-// Rotas
-// 1. Compartilhar em redes sociais
-app.post('/api/share', (req, res) => {
-    const { platform } = req.body;
-    if (!platform) {
-        return res.status(400).json({ message: 'Plataforma não especificada!' });
-    }
+// Middleware para permitir CORS
+app.use(
+    cors({
+        origin: 'http://localhost:3001', // Substitua pelo domínio do frontend
+    })
+);
 
-    // Simula compartilhamento (integrações reais variam por API de cada plataforma)
-    console.log(`Compartilhando na plataforma: ${platform}`);
-    return res.json({ message: `Compartilhado com sucesso no ${platform}!` });
+// Rota para compartilhar no Facebook
+app.post('/api/share', (req, res) => {
+    try {
+        const { platform, product } = req.body;
+
+        if (!platform || !product) {
+            return res.status(400).json({ message: 'Plataforma ou produto não especificado!' });
+        }
+
+        if (platform !== 'facebook') {
+            return res.status(400).json({ message: 'Plataforma não suportada!' });
+        }
+
+        // URLs das imagens
+        const productImages = {
+            tomate: 'https://imgur.com/9lSfm47',
+            favorita: 'https://imgur.com/wnwfp7K',
+        };
+
+        const selectedImage = productImages[product];
+        if (!selectedImage) {
+            return res.status(400).json({ message: 'Produto não encontrado!' });
+        }
+
+        const facebookShareURL = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(selectedImage)}`;
+
+        console.log(`[INFO] Compartilhando ${product} com imagem ${selectedImage}`);
+
+        return res.json({
+            message: 'Abrindo Facebook para compartilhamento!',
+            shareURL: facebookShareURL,
+        });
+    } catch (error) {
+        console.error('[ERRO] Erro na rota de compartilhamento:', error);
+        return res.status(500).json({ message: 'Erro interno no servidor.' });
+    }
 });
 
-// 2. Enviar mensagem de contato
+// Rota de envio de contato
 app.post('/api/contact', async (req, res) => {
     const { email, message } = req.body;
     if (!email || !message) {
@@ -29,27 +62,26 @@ app.post('/api/contact', async (req, res) => {
     }
 
     try {
-        // Configurar o transporte de e-mail
         const transporter = nodemailer.createTransport({
-            service: 'gmail', // Troque pelo serviço utilizado
+            host: 'smtp.gmail.com',
+            port: 465,
+            secure: true,
             auth: {
-                user: 'seuemail@gmail.com', // Substitua pelo seu e-mail
-                pass: 'suasenha'           // Substitua pela senha do e-mail (use senhas de app)
-            }
+                user: 'maatheusousa@gmail.com',
+                pass: 'jqafxcigzzkkvvnu',
+            },
         });
 
-        // Enviar e-mail de confirmação ao usuário
         await transporter.sendMail({
-            from: 'seuemail@gmail.com',
+            from: 'maatheusousa@gmail.com',
             to: email,
-            subject: 'Mensagem Recebida - Econnect',
-            text: `Olá! Recebemos sua mensagem: "${message}". Em breve entraremos em contato!`
+            subject: 'Confirmação de Mensagem - Econnect',
+            text: `Olá! Recebemos sua mensagem: "${message}". Em breve entraremos em contato!`,
         });
 
-        // Responder sucesso
-        res.json({ message: 'Mensagem enviada com sucesso!' });
+        res.json({ message: 'Mensagem enviada com sucesso! Verifique seu e-mail para confirmação.' });
     } catch (error) {
-        console.error('Erro ao enviar e-mail:', error);
+        console.error('[ERRO] Erro ao enviar e-mail:', error);
         res.status(500).json({ message: 'Erro ao enviar mensagem. Tente novamente mais tarde.' });
     }
 });

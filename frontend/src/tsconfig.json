@@ -1,20 +1,12 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "noFallthroughCasesInSwitch": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "react-jsx"
-  },
-  "include": ["src"]
+    "target": "es2016",
+    "types": ["jest"],                          /* Define a versão da linguagem JavaScript. */
+    "module": "commonjs",                        /* Define o tipo de módulo. */
+    "jsx": "react-jsx",                          /* Habilita o suporte a JSX para React (React 17+). */
+    "esModuleInterop": true,                     /* Garante compatibilidade com módulos CommonJS. */
+    "strict": true,                              /* Habilita verificações de tipo estritas. */
+    "forceConsistentCasingInFileNames": true,    /* Garante que nomes de arquivos sejam sensíveis a maiúsculas e minúsculas. */
+    "skipLibCheck": true                         /* Ignora a verificação de tipos em arquivos .d.ts. */
+  }
 }
